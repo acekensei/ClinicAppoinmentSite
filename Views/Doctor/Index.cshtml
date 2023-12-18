@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ClinicAppointmentClient.Models.Doctor>
+
+@{
+    ViewData["Title"] = "List of Doctors";
+}
+
+<div style="padding-top: 30px;">
+    <h1>List of Doctors</h1>
+    <table class="table table-hover table-striped bg-white">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @* @Html.DisplayNameFor(model => model.DoctorName) *@
+                    Doctor
+                </th>
+                <th>
+                    @* @Html.DisplayNameFor(model => model.IsAvailable) *@
+                    Availability
+                </th>
+                <th>
+                    <a asp-action="Create" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-plus"></i></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        Dr. @Html.DisplayFor(modelItem => item.DoctorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAvailable)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

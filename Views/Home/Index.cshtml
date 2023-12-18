@@ -1,0 +1,165 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<style>
+    body {
+        margin: 0;
+        overflow-x: hidden; /* Hide horizontal scroll bars on the entire page */
+    }
+
+    .bg-image {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        height: 600px; /* Set the desired height */
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .mask {
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+</style>
+
+<!-- Hero -->
+<div class="p-5 text-center bg-image rounded-3" style="
+    background-image: url('https://plus.unsplash.com/premium_photo-1661723555220-c7580a83f490?auto=format&fit=crop&q=80&w=1470&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    height: 600px;
+    min-width: 100%;
+    width: 1250px;
+    margin-left: -50px;
+    overflow: hidden;
+  ">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.2);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+                <h1 class="mb-3">Apex Health Center</h1>
+                <h5 class="mb-3">Dedicated To Serve</h5>
+                <a class="btn btn-lg rounded-3" href="#!" role="button" style="background-color: #F2CA80; font-size:15px;">Book Appointment</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero -->
+
+<!-- Section One -->
+<div class="row" style="padding-top: 50px;">
+    <div class="col d-flex justify-content-center align-items-center">
+        <img src="https://images.pexels.com/photos/4270362/pexels-photo-4270362.jpeg?auto=compress&cs=tinysrgb&w=600"
+             style="border-radius: 15px; max-height: 500px; width: auto;" />
+    </div>
+    <div class="col" style="padding-top: 80px;">
+        <h2>Welcome to Apex Health Clinic</h2>
+        <p class="fs-5">
+            At Apex Health Clinic, we are dedicated to your well-being.
+            Our team of experienced professionals is here to provide you
+            with the best healthcare services and support.
+        </p>
+        <h4 class="pt-3">Why Choose Us:</h4>
+        <ul style="list-style-type: none; margin-left: -30px;" class="pt-3">
+            <li class="pb-1" style="font-size: 20px;">
+                <i class="fa-solid fa-circle-check" style="padding-right: 10px; color: darkslateblue;"></i>
+                Experienced and compassionate healthcare professionals
+            </li>
+            <li class="pb-1" style="font-size: 20px;">
+                <i class="fa-solid fa-circle-check" style="padding-right: 10px; color: darkslateblue;"></i>
+                State-of-the-art facilities and equipment
+            </li>
+            <li class="pb-1" style="font-size: 20px;">
+                <i class="fa-solid fa-circle-check" style="padding-right: 10px; color: darkslateblue;"></i>
+                Personalized treatment plans for your unique needs
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- Section One -->
+
+<!-- Section Two -->
+<div class="row d-flex justify-content-center align-items-center text-center" style="padding-top: 50px; gap: 5px;">
+    <div class="col border border-1 pt-4 pb-3">
+        <i class="fa-solid fa-tooth rounded-circle" style="background-color: darkslateblue; color: white; padding: 10px;"></i>
+        <h3>Dental Procedures</h3>
+        <p>
+            At Apex Health Clinic, our experienced dental team offers a
+            wide range of services, from routine check-ups to advanced
+            treatments, ensuring your oral health is excellent and your
+            smile is beautiful. We're here to meet your dental care needs
+            with expertise and care.
+        </p>
+        <a class="btn btn-md" style="background-color: darkslateblue; color: white;">Book <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="col border border-1 pt-4 pb-3">
+        <i class="fa-solid fa-tooth rounded-circle" style="background-color: darkslateblue; color: white; padding: 10px;"></i>
+        <h3>Paediatrician</h3>
+        <p>
+            At Apex Health Clinic, our dedicated pediatricians provide expert
+            care for your child's health and well-being. Our services include
+            well-child check-ups, immunizations, diagnosis, and treatment of
+            childhood illnesses, and parental guidance. We create a comfortable,
+            child-friendly environment, prioritizing your child's health and happiness.
+        </p>
+        <a class="btn btn-md" style="background-color: darkslateblue; color: white;">Book <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+    <div class="col border border-1 pt-4 pb-3">
+        <i class="fa-solid fa-tooth rounded-circle" style="background-color: darkslateblue; color: white; padding: 10px;"></i>
+        <h3>Preventative Care</h3>
+        <p>
+            At Apex Health Clinic, we prioritize prevention for your well-being.
+            Our services include regular health check-ups, vaccinations, health
+            screenings, lifestyle counseling, and chronic disease management. We're
+            dedicated to empowering you with knowledge for a fulfilling, healthy life
+        </p>
+        <a class="btn btn-md" style="background-color: darkslateblue; color: white;">Book <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+</div>
+<!-- Section Two -->
+
+
+<!-- Section Three -->
+<div class="row" style="padding-top: 70px; gap: 5px;">
+    <h3>Testimonials</h3>
+    <div class="col" style="background-color: darkslateblue; padding: 10px; border-radius: 5px; color: white;">
+        <p>
+            I can't say enough about the exceptional care I 
+            received at Apex Health Clinic. From the moment I 
+            walked in, I was greeted with warmth and professionalism. 
+            The staff and doctors truly care about their patients' 
+            well-being. The comprehensive healthcare services provided, 
+            from check-ups to specialized treatments, are top-notch. I'm 
+            grateful to have a healthcare partner that's dedicated to my 
+            health and committed to providing the best possible care. 
+            Thank you, Apex Health Clinic, for keeping me and my family 
+            in the best of health!
+        </p>
+        <div>
+            <h5 style="font-size: 16px; margin-bottom: -4px;">Lisa Berger</h5>
+            <p style="font-size: 14px;">Healthy Patient</p>
+        </div>
+    </div>
+    <div class="col" style="border: 1px solid; border-color: darkslateblue; padding: 10px; border-radius: 5px;">
+        <p>
+            Choosing Apex Health Clinic for my healthcare needs was 
+            one of the best decisions I've made. The team of healthcare
+            professionals is not only highly skilled but also incredibly
+            compassionate. They take the time to listen, explain, and 
+            make you feel comfortable throughout your healthcare journey. 
+            The preventative care and treatments I've received have been 
+            exceptional. I trust them to keep my health in top shape, and 
+            I couldn't be happier with the care I've received. Apex Health 
+            Clinic is a true partner in my well-being, and I highly recommend 
+            their services to anyone seeking top-quality healthcare.
+        </p>
+        <div>
+            <h5 style="font-size: 16px; margin-bottom: -4px;">Michael Mcmahon</h5>
+            <p style="font-size: 14px;">Healthy Patient</p>
+        </div>
+    </div>
+</div>
+<!-- Section Three -->

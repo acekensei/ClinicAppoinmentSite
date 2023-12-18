@@ -1,0 +1,175 @@
+﻿@model ClinicAppointmentClient.Models.ViewModels.AppointmentVM
+
+@{
+    ViewData["Title"] = "Appointment List";
+}
+
+<div style="padding-top: 30px;">
+    <h1>List of Appointments</h1>
+    <form asp-action="Index" method="get" class="pb-2">
+        <div class="input-group md-form form-sm form-2 pl-0">
+            <input name="term" class="form-control my-0 py-1 red-border" type="text" placeholder="Search" />
+                <span class="input-group-text red lighten-3" id="basic-text1">
+                    <i class="fas fa-search text-grey" aria-hidden="true"></i>
+                </span>
+        </div>
+    </form>
+    <table class="table table-hover table-striped bg-white rounded">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    Patient
+                </th>
+                <th>
+                    Patient Number
+                </th>
+                <th>
+                    Doctor Assigned
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    Time Slot
+                </th>
+                <th>
+                    Late
+                </th>
+                <th>
+                    No Show
+                </th>
+                <th>
+                    <a asp-action="Create" class="btn btn-sm btn-outline-success"><i class="fa-solid fa-plus"></i></a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Data)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PatientName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doctor.DoctorName)
+                    </td>
+                    <td>
+                        @if (item.Date < DateTime.Today)
+                        {
+                            <p>
+                                @item.Date.ToString("dddd, MMM d")
+                                <a class="btn btn-sm btn-warning disabled">
+                                    PAST
+                                </a>
+                            </p>
+                        }
+                        else if (item.Date == DateTime.Today)
+                        {
+                            <p>
+                                @item.Date.ToString("dddd, MMM d")
+                                <a class="btn btn-sm btn-success disabled">
+                                    TODAY
+                                </a>
+                            </p>
+                        }
+                        else if (item.Date > DateTime.Today)
+                        {
+                            <p>
+                                @item.Date.ToString("dddd, MMM d")
+                                <a class="btn btn-sm btn-info disabled">
+                                    UPCOMING
+                                </a>
+                            </p>
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimeSlot.Slot)
+                    </td>
+                    <td>
+                        @if (item.IsLate == true)
+                        {
+                            <p>LATE</p>
+                        }
+                        else
+                        {
+                            <form method="post" asp-controller="Appointment" asp-action="MarkLate">
+                                <input type="hidden" name="apptId" value="@item.Id" />
+                                <button class="mark-complete-button btn btn-success" type="submit">
+                                    Mark Late
+                                </button>
+                            </form>
+                        }
+                    </td>
+                    <td>
+                        @if (item.NoShow == true)
+                        {
+                            <p>NO SHOW</p>
+                        }
+                        else
+                        {
+                            <form method="post" asp-controller="Appointment" asp-action="MarkNoShow">
+                                <input type="hidden" name="apptId" value="@item.Id" />
+                                <button class="mark-complete-button btn btn-success" type="submit">
+                                    Mark No Show
+                                </button>
+                            </form>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @if (Model.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Appointment/Index?term=@Model.term&currentPage=@(Model.CurrentPage-1)" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+            }
+            @for (int i = 1; i < Model.TotalPages; i++)
+            {
+                if (i == Model.CurrentPage)
+                {
+                    <li class="page-item"><a class="page-link active" href="/Appointment/Index?@Model.term&currentPage=@i">@i</a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link" href="/Appointment/Index?@Model.term&currentPage=@i">@i</a></li>
+                }
+            }
+            @if (Model.CurrentPage < Model.TotalPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/Appointment/Index?@Model.term&currentPage=@(Model.CurrentPage+1)" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            }
+        </ul>
+    </nav>
+
+</div>
+
+
+

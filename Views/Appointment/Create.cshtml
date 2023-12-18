@@ -1,0 +1,54 @@
+﻿@model ClinicAppointmentClient.Models.ViewModels.AppointmentVM
+
+@{
+    ViewData["Title"] = "Book Appointment";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h4 class="text-center text-white">Book Appointment</h4>
+            <hr style="color: white;"/>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="PatientName" class="control-label text-white">Patient Name</label>
+                    <input asp-for="PatientName" class="form-control" />
+                    <span asp-validation-for="PatientName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label text-white">Phone Number</label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Date" class="control-label text-white">Appointment Date</label>
+                    <input asp-for="Date" type="date" class="form-control" />
+                    <span asp-validation-for="Date" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SelectedDoctorId" class="control-label text-white">Select Doctor</label>
+                    <select asp-for="SelectedDoctorId" asp-items="@Model.DoctorLists" class="form-control">
+                        <option disabled selected>Select Doctor</option>
+                    </select>
+                    <span asp-validation-for="SelectedDoctorId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SelectedTimeSlotId" class="control-label text-white">Select Timeslot</label>
+                    <select asp-for="SelectedTimeSlotId" asp-items="@Model.TimeSlotLists" class="form-control">
+                        <option disabled selected>Select Timeslot</option>
+                    </select>
+                    <span asp-validation-for="SelectedTimeSlotId" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-4 text-center">
+                    <a asp-action="Index" class="btn btn-outline-warning ml-2">
+                        <i class="fa-solid fa-arrow-left"></i> Back
+                    </a>
+                    <button type="submit" class="btn btn-primary ml-2">
+                        <i class="fa-regular fa-floppy-disk"></i>
+                        Create
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
